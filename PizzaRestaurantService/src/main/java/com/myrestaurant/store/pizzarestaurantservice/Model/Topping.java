@@ -19,7 +19,7 @@ public class Topping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "topping_id")
-    private long id;
+    private Long id;
     @NotBlank
     @Size(max = 255)
     private String name;

@@ -20,7 +20,7 @@ public class Pizza implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pizza_id")
-    private long id;
+    private Long id;
     @NotBlank
     @Size(max = 255)
     @Column(name = "name")
