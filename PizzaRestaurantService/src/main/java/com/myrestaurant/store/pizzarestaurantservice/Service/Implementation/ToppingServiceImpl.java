@@ -1,7 +1,6 @@
 package com.myrestaurant.store.pizzarestaurantservice.Service.Implementation;
 
 import com.myrestaurant.store.pizzarestaurantservice.DAO.ToppingRepo;
-import com.myrestaurant.store.pizzarestaurantservice.Model.Pizza;
 import com.myrestaurant.store.pizzarestaurantservice.Model.Topping;
 import com.myrestaurant.store.pizzarestaurantservice.Service.ToppingService;
 import lombok.RequiredArgsConstructor;
@@ -43,8 +42,8 @@ public class ToppingServiceImpl implements ToppingService {
 
     @Override
     public Topping update(Topping entity, Long id) {
-        Optional<Topping> optional=findById(id);
-        if(optional.isPresent()){
+        Optional<Topping> optional = findById(id);
+        if (optional.isPresent()) {
             return save(entity);
         }
         return null;
