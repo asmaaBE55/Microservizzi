@@ -66,6 +66,15 @@
             <artifactId>springfox-boot-starter</artifactId>
             <version>${springfox-boot-starter}</version>
         </dependency>
+        <dependency>
+            <groupId>org.xmlunit</groupId>
+            <artifactId>xmlunit-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct.extensions.spring</groupId>
+            <artifactId>mapstruct-spring-extensions</artifactId>
+            <version>0.1.1</version>
+        </dependency>
     </dependencies>
 
     <build>
