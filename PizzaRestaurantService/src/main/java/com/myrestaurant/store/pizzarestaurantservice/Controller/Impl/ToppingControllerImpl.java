@@ -1,5 +1,6 @@
 package com.myrestaurant.store.pizzarestaurantservice.Controller.Impl;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.myrestaurant.store.pizzarestaurantservice.Controller.ToppingController;
 import com.myrestaurant.store.pizzarestaurantservice.DTO.ToppingDTO;
 import com.myrestaurant.store.pizzarestaurantservice.Mapper.ToppingMapper;
@@ -40,11 +41,14 @@ public class ToppingControllerImpl implements ToppingController {
     }
 
     @Override
+    @GetMapping
+    @JsonIgnore
     public List<ToppingDTO> list() {
         return toppingMapper.asDTOlist(toppingService.findAll());
     }
 
     @Override
+    @PutMapping("/{id}")
     public ToppingDTO update(ToppingDTO toppingDTO, Long id) {
       Topping topping=toppingMapper.asEntity(toppingDTO);
       return toppingMapper.asDTO(toppingService.update(topping,id));

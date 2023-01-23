@@ -1,5 +1,6 @@
 package com.myrestaurant.store.pizzarestaurantservice.Controller.Impl;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.myrestaurant.store.pizzarestaurantservice.Controller.PizzaController;
 import com.myrestaurant.store.pizzarestaurantservice.DTO.PizzaDTO;
 import com.myrestaurant.store.pizzarestaurantservice.Mapper.PizzaMapper;
@@ -47,6 +48,7 @@ public class PizzaControllerImpl implements PizzaController {
 
     @Override
     @GetMapping
+    @JsonIgnore
     public List<PizzaDTO> list() {
         return pizzaMapper.asDTOlist(pizzaService.findAll());
     }
