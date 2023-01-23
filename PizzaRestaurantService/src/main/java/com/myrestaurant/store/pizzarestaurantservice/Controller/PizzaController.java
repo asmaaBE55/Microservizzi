@@ -11,6 +11,9 @@ import java.util.List;
 @Api(tags = "Pizza Api")
 public interface PizzaController {
 
+    @ApiOperation("Find pizzas by restaurant id")
+    public List<PizzaDTO> findByRestaurantsIn(@PathVariable ("id") Long restaurantId);
+
     @ApiOperation("Add new pizza")
     PizzaDTO save(@RequestBody PizzaDTO pizzaDTO);
 
