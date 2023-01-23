@@ -1,6 +1,5 @@
 package com.myrestaurant.store.pizzarestaurantservice.Controller.Impl;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.myrestaurant.store.pizzarestaurantservice.Controller.PizzaController;
 import com.myrestaurant.store.pizzarestaurantservice.DTO.PizzaDTO;
 import com.myrestaurant.store.pizzarestaurantservice.Mapper.PizzaMapper;
@@ -26,6 +25,7 @@ public class PizzaControllerImpl implements PizzaController {
         Pizza pizza = pizzaMapper.asEntity(pizzaDTO);
         return pizzaMapper.asDTO(pizzaService.save(pizza));
     }
+
     /**
      * STEPS DETTAGLIATE DEL METODO POST
      * Pizza pizza = pizzaMapper.asEntity(pizzaDTO);
@@ -36,14 +36,14 @@ public class PizzaControllerImpl implements PizzaController {
     @Override
     @GetMapping("/{id}")
     public PizzaDTO findById(@PathVariable Long id) {
-        Pizza pizza=pizzaService.findById(id).orElse(null);
+        Pizza pizza = pizzaService.findById(id).orElse(null);
         return pizzaMapper.asDTO(pizza);
     }
 
     @Override
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id) {
-     pizzaService.deleteById(id);
+        pizzaService.deleteById(id);
     }
 
     @Override
@@ -51,15 +51,17 @@ public class PizzaControllerImpl implements PizzaController {
     public List<PizzaDTO> list() {
         return pizzaMapper.asDTOlist(pizzaService.findAll());
     }
-    /** STEPS DETTAGLIATE DEL METODO GET LIST
+
+    /**
+     * STEPS DETTAGLIATE DEL METODO GET LIST
      * List<Pizza> pizzas = pizzaService.findAll();
      * return pizzaMapper.asDTOList(pizzas);
-     * **/
+     **/
 
     @Override
     @PutMapping("/{id}")
     public PizzaDTO update(@RequestBody PizzaDTO pizzaDTO, @PathVariable("id") Long id) {
-      Pizza pizza=pizzaMapper.asEntity(pizzaDTO);
-      return pizzaMapper.asDTO(pizzaService.update(pizza,id));
+        Pizza pizza = pizzaMapper.asEntity(pizzaDTO);
+        return pizzaMapper.asDTO(pizzaService.update(pizza, id));
     }
 }

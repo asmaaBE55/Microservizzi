@@ -22,7 +22,7 @@ public class ToppingServiceImpl implements ToppingService {
 
     @Override
     public List<Topping> save(List<Topping> entities) {
-        return (List<Topping>) toppingRepo.saveAll(entities);
+        return toppingRepo.saveAll(entities);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class ToppingServiceImpl implements ToppingService {
 
     @Override
     public List<Topping> findAll() {
-        return (List<Topping>) toppingRepo.findAll();
+        return toppingRepo.findAll();
     }
 
     @Override

@@ -29,14 +29,14 @@ public class ToppingControllerImpl implements ToppingController {
     @Override
     @GetMapping("/{id}")
     public ToppingDTO findById(@PathVariable("id") Long id) {
-        Topping topping=toppingService.findById(id).orElse(null);
+        Topping topping = toppingService.findById(id).orElse(null);
         return toppingMapper.asDTO(topping);
     }
 
     @Override
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id) {
-     toppingService.deleteById(id);
+        toppingService.deleteById(id);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class ToppingControllerImpl implements ToppingController {
     @Override
     @PutMapping("/{id}")
     public ToppingDTO update(ToppingDTO toppingDTO, Long id) {
-      Topping topping=toppingMapper.asEntity(toppingDTO);
-      return toppingMapper.asDTO(toppingService.update(topping,id));
+        Topping topping = toppingMapper.asEntity(toppingDTO);
+        return toppingMapper.asDTO(toppingService.update(topping, id));
     }
 }

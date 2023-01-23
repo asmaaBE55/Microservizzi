@@ -23,7 +23,7 @@ public class PizzaServiceImpl implements PizzaService {
 
     @Override
     public List<Pizza> save(List<Pizza> entities) {
-        return (List<Pizza>) pizzaRepo.saveAll(entities);
+        return pizzaRepo.saveAll(entities);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class PizzaServiceImpl implements PizzaService {
 
     @Override
     public List<Pizza> findAll() {
-        return (List<Pizza>) pizzaRepo.findAll();
+        return pizzaRepo.findAll();
     }
 
     @Override
