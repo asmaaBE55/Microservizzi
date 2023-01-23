@@ -1,7 +1,10 @@
 package com.myrestaurant.store.pizzarestaurantservice;
 
 import com.myrestaurant.store.pizzarestaurantservice.DAO.PizzaRepo;
+import com.myrestaurant.store.pizzarestaurantservice.DAO.RestaurantRepo;
+import com.myrestaurant.store.pizzarestaurantservice.Model.Driver;
 import com.myrestaurant.store.pizzarestaurantservice.Model.Pizza;
+import com.myrestaurant.store.pizzarestaurantservice.Model.Restaurant;
 import com.myrestaurant.store.pizzarestaurantservice.Model.Topping;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,8 @@ import java.util.Set;
 class PizzaRestaurantServiceApplicationTests {
     @Autowired
     PizzaRepo pizzaRepo;
+    @Autowired
+    private RestaurantRepo restaurantRepo;
 
     @Test
     void populateDB() {
@@ -56,5 +61,15 @@ class PizzaRestaurantServiceApplicationTests {
         Pizza pizzaEFigliata = Pizza.builder().name("Pizza e Figliata").toppings(Set.of(figliata, mortadella, cremaDiGorgonzolaEPistacchio)).build();
         Pizza pizzaBufalaDiMare = Pizza.builder().name("Pizza bufala di mare").toppings(Set.of(fiorDiLatte, pacchetelleGialle, bottargaDiMuggine, aliciDiCetara, zesteDiLimoneDiCetraro, stracciatella, basilico)).build();
         pizzaRepo.saveAll(List.of(margherita, quattroFormaggi, pizzaDAsila, pizzaSacroEProfano, pizzaDAccarezzare, pizzaDAlessandro, pizzaEFigliata, pizzaBufalaDiMare));
+        Driver driver1 = Driver.builder().name("Driver1").build();
+        Driver driver2 = Driver.builder().name("Driver2").build();
+        Driver driver3 = Driver.builder().name("Driver3").build();
+        Driver driver4 = Driver.builder().name("Driver4").build();
+        Driver driver5 = Driver.builder().name("Driver5").build();
+        Driver driver6 = Driver.builder().name("Driver6").build();
+        Restaurant vogliaDiPizza = Restaurant.builder().name("Voglia di pizza").address("Via Roma").city("Roma").drivers(Set.of(driver1, driver2, driver3)).build();
+        Restaurant pizzaAGoGo = Restaurant.builder().name("Pizza a GoGo").address("Via Milano").city("Milano").drivers(Set.of(driver4, driver5, driver6)).build();
+        restaurantRepo.saveAll(List.of(vogliaDiPizza, pizzaAGoGo));
     }
+
 }
