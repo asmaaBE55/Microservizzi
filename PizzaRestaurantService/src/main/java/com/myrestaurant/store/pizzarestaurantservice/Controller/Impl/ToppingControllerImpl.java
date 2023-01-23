@@ -28,7 +28,7 @@ public class ToppingControllerImpl implements ToppingController {
 
     @Override
     @GetMapping("/{id}")
-    public ToppingDTO findById(Long id) {
+    public ToppingDTO findById(@PathVariable("id") Long id) {
         Topping topping=toppingService.findById(id).orElse(null);
         return toppingMapper.asDTO(topping);
     }
