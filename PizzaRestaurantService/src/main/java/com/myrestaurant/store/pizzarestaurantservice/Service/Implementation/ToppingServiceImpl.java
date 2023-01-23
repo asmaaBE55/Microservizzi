@@ -14,7 +14,7 @@ import java.util.Optional;
 @Transactional
 @RequiredArgsConstructor
 public class ToppingServiceImpl implements ToppingService {
-    private ToppingRepo toppingRepo;
+    private final ToppingRepo toppingRepo;
 
     public Topping save(Topping entity) {
         return toppingRepo.save(entity);
