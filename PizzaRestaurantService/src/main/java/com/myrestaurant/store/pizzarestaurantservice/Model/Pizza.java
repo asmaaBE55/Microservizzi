@@ -1,10 +1,11 @@
 package com.myrestaurant.store.pizzarestaurantservice.Model;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -37,5 +38,6 @@ public class Pizza implements Serializable {
                     name = "topping_id", referencedColumnName = "topping_id"
             )
     )
+    @JsonIgnore
     private Set<Topping> toppings = new HashSet<>();
 }

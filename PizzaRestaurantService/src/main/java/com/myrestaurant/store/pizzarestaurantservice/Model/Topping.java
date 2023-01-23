@@ -1,10 +1,11 @@
 package com.myrestaurant.store.pizzarestaurantservice.Model;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,5 +25,6 @@ public class Topping {
     @Size(max = 255)
     private String name;
     @ManyToMany(mappedBy = "toppings")
+    @JsonIgnore
     private Set<Pizza> pizzas = new HashSet<>();
 }

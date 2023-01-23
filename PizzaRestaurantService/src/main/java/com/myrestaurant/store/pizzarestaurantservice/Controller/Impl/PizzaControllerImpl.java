@@ -48,7 +48,6 @@ public class PizzaControllerImpl implements PizzaController {
 
     @Override
     @GetMapping
-    @JsonIgnore
     public List<PizzaDTO> list() {
         return pizzaMapper.asDTOlist(pizzaService.findAll());
     }
