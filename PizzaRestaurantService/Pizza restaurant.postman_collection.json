@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "c253d2bf-5f70-43e6-a163-1db9d68db2ff",
+		"name": "Pizza restaurant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21756924"
+	},
+	"item": [
+		{
+			"name": "Pizzas requests",
+			"item": [
+				{
+					"name": "Create Pizza",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Nuova pizza\",\r\n        \"favorite\": true,\r\n         \"toppings\": [\r\n            {\r\n                \"id\": 7,\r\n                \"name\": \"Mozzarella locale\"\r\n            },\r\n            {\r\n                \"id\": 9,\r\n                \"name\": \"Pomodoro locale\"\r\n            },\r\n            {\r\n                \"id\": 8,\r\n                \"name\": \"Basilico\"\r\n            }\r\n        ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/pizzas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pizzas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get pizzas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/pizzas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pizzas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get pizza by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/pizzas/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pizzas",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete pizza",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/pizzas/11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pizzas",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify pizza",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Nuova pizza modificata\",\r\n        \"favorite\": false,\r\n         \"toppings\": [\r\n            {\r\n                \"id\": 7,\r\n                \"name\": \"Mozzarella locale\"\r\n            },\r\n            {\r\n                \"id\": 9,\r\n                \"name\": \"Pomodoro locale\"\r\n            },\r\n            {\r\n                \"id\": 8,\r\n                \"name\": \"Basilico\"\r\n            }\r\n        ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/pizzas/12",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pizzas",
+								"12"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Topping Requests",
+			"item": [
+				{
+					"name": "Get toppings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/toppings",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"toppings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create topping",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n        \"name\": \"Basilico aggiunto\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/toppings",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"toppings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get topping by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/toppings/36",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"toppings",
+								"36"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete topping",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/toppings/37",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"toppings",
+								"37"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify topping",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"name\": \"pomodoro modificato\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/toppings/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"toppings",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
