@@ -40,4 +40,7 @@ public class Pizza implements Serializable {
     )
     @JsonIgnore
     private Set<Topping> toppings = new HashSet<>();
+    @JsonIgnore
+    @ManyToMany(mappedBy = "pizzas")
+    private Set<Restaurant>restaurants=new HashSet<>();
 }
