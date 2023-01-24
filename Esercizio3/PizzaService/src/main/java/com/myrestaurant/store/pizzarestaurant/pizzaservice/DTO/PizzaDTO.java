@@ -12,9 +12,12 @@ import java.util.Set;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 public class PizzaDTO {
+
     private long id;
+
     private String name;
+
     private boolean favorite;
-    @JsonIgnore
+
     private Set<ToppingDTO> toppings = new HashSet<>();
 }

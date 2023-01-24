@@ -2,6 +2,7 @@ package com.myrestaurant.store.restaurant.restaurantservice.Controller.Impl;
 
 import com.myrestaurant.store.restaurant.restaurantservice.Controller.RestaurantController;
 import com.myrestaurant.store.restaurant.restaurantservice.DTO.RestaurantDTO;
+import com.myrestaurant.store.restaurant.restaurantservice.DTO.RestaurantIdsDTO;
 import com.myrestaurant.store.restaurant.restaurantservice.Mapper.RestaurantMapper;
 import com.myrestaurant.store.restaurant.restaurantservice.Model.Restaurant;
 import com.myrestaurant.store.restaurant.restaurantservice.Service.RestaurantService;
@@ -20,6 +21,7 @@ import java.util.Objects;
 public class RestaurantControllerImpl implements RestaurantController {
     private final RestaurantService restaurantService;
     private final RestaurantMapper restaurantMapper;
+
     @Value("${app.pizza-service-url}")
     private String pizzaServiceUrl;
 

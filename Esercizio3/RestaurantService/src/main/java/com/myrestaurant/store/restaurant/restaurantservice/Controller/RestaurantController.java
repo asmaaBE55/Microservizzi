@@ -1,6 +1,7 @@
 package com.myrestaurant.store.restaurant.restaurantservice.Controller;
 
 import com.myrestaurant.store.restaurant.restaurantservice.DTO.RestaurantDTO;
+import com.myrestaurant.store.restaurant.restaurantservice.DTO.RestaurantIdsDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
