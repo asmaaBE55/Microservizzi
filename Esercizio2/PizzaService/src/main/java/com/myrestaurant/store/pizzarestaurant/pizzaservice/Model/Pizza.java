@@ -2,7 +2,7 @@ package com.myrestaurant.store.pizzarestaurant.pizzaservice.Model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.myrestaurant.store.restaurant.restaurantservice.Model.Restaurant;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -42,7 +42,5 @@ public class Pizza implements Serializable {
     )
     @JsonIgnore
     private Set<Topping> toppings = new HashSet<>();
-    @JsonIgnore
-    @ManyToMany(mappedBy = "pizzas")
-    private Set<Restaurant> restaurants = new HashSet<>();
+
 }

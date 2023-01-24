@@ -6,10 +6,13 @@ import com.myrestaurant.store.restaurant.restaurantservice.Mapper.RestaurantMapp
 import com.myrestaurant.store.restaurant.restaurantservice.Model.Restaurant;
 import com.myrestaurant.store.restaurant.restaurantservice.Service.RestaurantService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/restaurants")
@@ -17,13 +20,14 @@ import java.util.List;
 public class RestaurantControllerImpl implements RestaurantController {
     private final RestaurantService restaurantService;
     private final RestaurantMapper restaurantMapper;
+    @Value("http://localhost:9091/api/pizzas/restaurant")
+    private String pizzaServiceUrl;
 
     @Override
-    @PostMapping("/addPizzas")
-    @ResponseStatus(HttpStatus.CREATED)
-    public RestaurantDTO addPizzasToRestaurant(@RequestBody RestaurantDTO rDTO) {
-        Restaurant restaurant = restaurantMapper.asEntity(rDTO);
-        return restaurantMapper.asDTO(restaurantService.addPizzasToRestaurant(restaurant));
+    @GetMapping("/pizzas/{restaurantId}")
+    public List<Object> getPizzasByRestaurantId(@PathVariable("restaurantId")Long restaurantId){
+        RestTemplate restTemplate=new RestTemplate();
+        return List.of(Objects.requireNonNull(restTemplate.getForObject(pizzaServiceUrl + "/" + restaurantId , Object[].class)));
     }
 
     @Override

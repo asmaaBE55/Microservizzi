@@ -1,13 +1,15 @@
 package com.myrestaurant.store.pizzarestaurant.pizzaservice.Service.Impl;
 
 import com.myrestaurant.store.pizzarestaurant.pizzaservice.DAO.PizzaRepo;
+import com.myrestaurant.store.pizzarestaurant.pizzaservice.DAO.RestaurantIdsRepository;
 import com.myrestaurant.store.pizzarestaurant.pizzaservice.Model.Pizza;
+import com.myrestaurant.store.pizzarestaurant.pizzaservice.Model.RestaurantIds;
 import com.myrestaurant.store.pizzarestaurant.pizzaservice.Service.PizzaService;
-import com.myrestaurant.store.restaurant.restaurantservice.Model.Restaurant;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +18,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PizzaServiceImpl implements PizzaService {
     private final PizzaRepo pizzaRepo;
+    private final RestaurantIdsRepository restaurantIDrepsitory;
 
     @Override
     public Pizza save(Pizza entity) {
@@ -51,14 +54,15 @@ public class PizzaServiceImpl implements PizzaService {
         return null;
     }
 
-
     @Override
-    public List<Pizza> findByRestaurantsId(Long restaurantId) {
-        List<Pizza> pizzas = pizzaRepo.findByRestaurantsIn
-                (List.of
-                        (Restaurant.builder()
-                                .id(restaurantId)
-                                .build()));
+    public List<Pizza> findByRestaurantId(Long restaurantId) {
+        List<RestaurantIds> ids = restaurantIDrepsitory.findByRestaurantId(restaurantId);
+        //crea la lista di pizze che dovranno essere ritornate
+        List<Pizza> pizzas = new ArrayList<>(ids.size());
+        //ciclo per popolare la lista di pizze
+        for(RestaurantIds element : ids){
+            pizzas.add(pizzaRepo.findById(element.getPizzaId()).get());
+        }
         return pizzas;
     }
 }

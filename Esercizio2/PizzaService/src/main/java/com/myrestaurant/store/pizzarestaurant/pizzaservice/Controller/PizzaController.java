@@ -11,10 +11,8 @@ import java.util.List;
 
 @Api(tags = "Pizza Api")
 public interface PizzaController {
-
-    @ApiOperation("Find pizzas by restaurant id")
-    public List<PizzaDTO> findByRestaurantsIn(@PathVariable("id") Long restaurantId);
-
+    @ApiOperation("find Pizza by Restaurant Id")
+    public List<PizzaDTO> findPizzaByRestaurant(@PathVariable("id") Long id );
     @ApiOperation("Add new pizza")
     PizzaDTO save(@RequestBody PizzaDTO pizzaDTO);
 

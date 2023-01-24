@@ -1,7 +1,6 @@
 package com.myrestaurant.store.restaurant.restaurantservice.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.myrestaurant.store.pizzarestaurant.pizzaservice.Model.Pizza;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -43,12 +42,5 @@ public class Restaurant implements Serializable {
     )
     @JsonIgnore
     private Set<Driver> drivers = new HashSet<>();
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "restaurant_pizzas",
-            joinColumns = @JoinColumn(
-                    name = "restaurant_id", referencedColumnName = "restaurant_id"),
-            inverseJoinColumns = @JoinColumn(name = "pizza_id", referencedColumnName = "pizza_id")
-    )
-    @JsonIgnore
-    private Set<Pizza> pizzas = new HashSet<>();
+
 }

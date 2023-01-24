@@ -3,6 +3,7 @@ package com.myrestaurant.store.restaurant.restaurantservice.Controller;
 import com.myrestaurant.store.restaurant.restaurantservice.DTO.RestaurantDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -12,8 +13,8 @@ import java.util.List;
 public interface RestaurantController {
 
 
-    @ApiOperation("add Pizza to Restaurant")
-    public RestaurantDTO addPizzasToRestaurant(@RequestBody RestaurantDTO rDTO);
+    @GetMapping("/pizzas/{restaurantId}")
+    List<Object> getPizzasByRestaurantId(@PathVariable("restaurantId") Long restaurantId);
 
     @ApiOperation("Add new restaurant")
     RestaurantDTO save(@RequestBody RestaurantDTO restaurantDTO);

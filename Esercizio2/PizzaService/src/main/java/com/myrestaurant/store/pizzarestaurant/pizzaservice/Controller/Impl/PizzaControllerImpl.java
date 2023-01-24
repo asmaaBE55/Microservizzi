@@ -18,11 +18,10 @@ import java.util.List;
 public class PizzaControllerImpl implements PizzaController {
     private final PizzaService pizzaService;
     private final PizzaMapper pizzaMapper;
-
     @Override
     @GetMapping("/restaurant/{id}")
-    public List<PizzaDTO> findByRestaurantsIn(@PathVariable("id") Long restaurantId) {
-        List<Pizza> pizzas = pizzaService.findByRestaurantsId(restaurantId);
+    public List<PizzaDTO> findPizzaByRestaurant(@PathVariable("id") Long restaurantId) {
+        List<Pizza> pizzas = pizzaService.findByRestaurantId(restaurantId);
         return pizzaMapper.asDTOlist(pizzas);
     }
 
