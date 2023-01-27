@@ -9,8 +9,8 @@ spring:
     #    password: sa
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/PizzaServiceDB
-    username: root
-    password: root
+    username: asmaa
+    password: password
   jpa:
     #    database-platform: org.hibernate.dialect.H2Dialect
     database-platform: org.hibernate.dialect.MySQL8Dialect
